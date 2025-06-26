@@ -7,14 +7,14 @@ phases:
       - npm install
   build:
     commands:
-      - echo Build iniciado em 'date'
+      - echo Build iniciado em $(date)
       - npm run build
   post_build:
     commands:
-      - echo Build finalizado em 'date'
+      - echo Build finalizado em $(date)
+      - cp appspec.yml build/
+      - cp -r Scripts build
 artifacts:
-  baseDirectory: ./
+  baseDirectory: build
   files:
-    - build/**/*
-    - appspec.yml
-    - Scripts/**/*
+    - '**/*'
