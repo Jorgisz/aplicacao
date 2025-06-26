@@ -13,6 +13,7 @@ phases:
     commands:
       - echo Build finalizado em 'date'
 artifacts:
+  baseDirectory: .
   files:
     - build/**/*
     - appspec.yml
