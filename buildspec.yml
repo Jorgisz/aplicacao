@@ -12,8 +12,13 @@ phases:
   post_build:
     commands:
       - echo Build finalizado em $(date)
-      - cp appspec.yml build/
-      - cp -r Scripts build
+      - echo Copiando appspec.yml e Scripts para dentro de build/
+      - cp ../appspec.yml ./build/ || cp ./appspec.yml ./build/
+      - cp -r ../Scripts ./build/ || cp -r ./Scripts ./build/
+      - echo Listando conteúdo final de build:
+      - ls -la ./build
+      - ls -la ./build/Scripts || true
+
 artifacts:
   baseDirectory: build
   files:
