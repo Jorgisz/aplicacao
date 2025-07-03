@@ -3,7 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo Instalando dependencias
+      - echo Instalando dependências
       - npm install
   build:
     commands:
@@ -12,14 +12,17 @@ phases:
   post_build:
     commands:
       - echo Build finalizado em $(date)
-      - echo Copiando appspec.yml e Scripts para dentro de build/
-      - cp ../appspec.yml ./build/ || cp ./appspec.yml ./build/
-      - cp -r ../Scripts ./build/ || cp -r ./Scripts ./build/
-      - echo Listando conteúdo final de build:
-      - ls -la ./build
-      - ls -la ./build/Scripts || true
+      - mkdir -p out/Scripts
+      - mkdir -p out/app
+      - cp -r build/* out/app/
+      - cp appspec.yml out/
+      - cp -r Scripts/* out/Scripts/
+      - echo Conteúdo final da pasta out:
+      - ls -la out
+      - ls -la out/Scripts
+      - ls -la out/app
 
 artifacts:
-  baseDirectory: build
+  baseDirectory: out
   files:
     - '**/*'
