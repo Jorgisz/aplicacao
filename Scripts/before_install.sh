@@ -1,3 +1,6 @@
 #!/bin/bash
+
+echo "[BeforeInstall] Limpando /var/www/html"
+mkdir -p /var/www/html
 touch /var/www/html/teste.txt
-rm -R /var/www/html/*
+rm -rf /var/www/html/*

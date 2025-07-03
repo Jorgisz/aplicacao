@@ -1,3 +1,5 @@
 #!/bin/bash
-systemctl start httpd.service
-systemctl enable httpd.service
+
+echo "[ApplicationStart] Iniciando serviço httpd"
+systemctl start httpd.service || true
+systemctl enable httpd.service || true

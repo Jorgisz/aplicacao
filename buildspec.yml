@@ -23,6 +23,7 @@ phases:
       - ls -la out/app
 
 artifacts:
-  baseDirectory: out
   files:
-    - '**/*'
+    - appspec.yml
+    - scripts/**       # seus scripts .sh
+    - build/**         # ou out/** dependendo do seu projeto
