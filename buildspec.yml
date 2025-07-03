@@ -12,14 +12,17 @@ phases:
   post_build:
     commands:
       - echo Build finalizado em $(date)
-      - mkdir -p build/Scripts
-      - cp -r Scripts/* build/Scripts/
-      - cp appspec.yml build/
-      - echo Conteúdo final da pasta build:
-      - ls -la build
-      - ls -la build/Scripts
+      - mkdir -p out/Scripts
+      - mkdir -p out/app
+      - cp -r build/* out/app/
+      - cp appspec.yml out/
+      - cp -r Scripts/* out/Scripts/
+      - echo Conteúdo final da pasta out:
+      - ls -la out
+      - ls -la out/Scripts
+      - ls -la out/app
 
 artifacts:
-  baseDirectory: build
+  baseDirectory: out
   files:
     - '**/*'
