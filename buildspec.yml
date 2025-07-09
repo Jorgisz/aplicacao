@@ -1,28 +1,20 @@
 version: 0.2
 
 phases:
-  pre_build:
+  pre-build:
     commands:
-      - echo Instalando dependências
+      - echo Instalando dependencias
       - npm install
   build:
     commands:
-      - echo Build iniciado em $(date)
+      - echo Build iniciado em `date`
       - npm run build
   post_build:
     commands:
-      - echo Build finalizado em $(date)
-      - mkdir -p out/Scripts
-      - mkdir -p out/app
-      - cp -r build/* out/app/
-      - cp appspec.yml out/
-      - cp -r Scripts/* out/Scripts/
-      - echo Conteúdo final da pasta out:
-      - ls -la out
-      - ls -la out/Scripts
-      - ls -la out/app
-
+      - echo Build finalizado em `date`
+      # - echo "Hello World"
 artifacts:
-  baseDirectory: out
   files:
-    - '**/*'
+    - appspec.yml
+    - build/**/*
+    - scripts/**/*
